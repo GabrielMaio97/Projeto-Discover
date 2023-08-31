@@ -15,12 +15,12 @@
 
 }
 .light {
-  --text-color: black;
+  --text-color: rgb(1, 9, 80);
   --bg-url: url(./assets/assets/claro.jpeg);
-  --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(0, 0, 0, 0.1);
+  --stroke-color: rgba(1, 9, 80, 0.5);
+  --surface-color: rgba(1, 9, 80, 0.05);
+  --surface-color-hover: rgba(1, 9, 80, 0.02);
+  --highlight-color: rgba(1, 9, 80, 0.1);
   --switch-bg-url: url(./assets/assets/sun.svg);
 }
 body {
@@ -80,11 +80,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back .4s;
  
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -167,5 +172,21 @@ footer {
   }
   .light {
     --bg-url: url(./assets/assets/claro.jpeg);
+  }
+}
+@keyframes slide-in {
+from {
+  left: 0;
+}
+to {
+  left: 50%;
+}
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
